@@ -20,7 +20,7 @@ app.get('/location/:when', (req, res) => {
   // TODO(Task 2): Return the tracking data closest to `req.params.when` from `exampleData`.
   console.log('req.params.when', req.params.when)
   const results = searchByDate(exampleData,req.params.when)
-  res.send({results})
+  res.send(results)
 })
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))

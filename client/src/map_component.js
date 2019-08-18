@@ -66,10 +66,13 @@ const MapComponent = ({results}) => {
   // TODO(Task 2): Display location that the back-end returned on the map as a marker.
   useEffect(() => {
     console.log('inside_map', results)
-    // results.forEach(result=>{
-    //   const resultDate =  Moment(result.time).format('hh:mm DD.MM')
-    //   const marker = L.marker([result.lat, result.lon]).bindPopup(resultDate).openPopup().addTo(map.current);
-    // })
+    if(results.length == 0){
+      return;
+    }
+    results.forEach(result=>{
+      const resultDate =  Moment(result.time).format('hh:mm DD.MM')
+      const marker = L.marker([result.lat, result.lon]).bindPopup(resultDate).openPopup().addTo(map.current);
+    })
   },[results])
 
   return (
