@@ -18,7 +18,7 @@ const Index = () => {
       {/* TODO(Task 2): Add a slider to select datetime in the past.
         Pass the selected value as prop to the MapContainer */ }
         <Slider search={search}/>
-      <MapComponent result={result} />
+      <MapComponent results={result} />
     </div>)
 }
 
