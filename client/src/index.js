@@ -1,9 +1,15 @@
-import React from 'react'
+import React , {useState} from 'react'
 import ReactDOM from 'react-dom'
 import MapComponent from './map_component'
+import Slider from './Slider'
 import './styles.css'
 
 const Index = () => {
+  const [result, setResult] = useState('');
+  const search = (searchResult)=>{
+    setResult(searchResult);
+  }
+
   return (
     <div>
       <div className='header'>
@@ -11,7 +17,8 @@ const Index = () => {
       </div>
       {/* TODO(Task 2): Add a slider to select datetime in the past.
         Pass the selected value as prop to the MapContainer */ }
-      <MapComponent />
+        <Slider search={search}/>
+      <MapComponent result={result} />
     </div>)
 }
 

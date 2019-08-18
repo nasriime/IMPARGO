@@ -18,7 +18,7 @@ const getRandomColor = ()=> {
 }
 
 
-const MapComponent = () => {
+const MapComponent = ({result}) => {
   const map = useRef()
   const [locations, setLocations] = useState()
   // Request location data.
@@ -64,6 +64,9 @@ const MapComponent = () => {
 
   }, [locations, map.current])
   // TODO(Task 2): Display location that the back-end returned on the map as a marker.
+  useEffect(() => {
+    console.log('inside_map', result)
+  },[result])
 
   return (
     <div>
