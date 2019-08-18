@@ -27,7 +27,7 @@ const Slider = ({search}) => {
 
      const formSubmit =(e) =>{
          e.preventDefault();
-        const fullDate = `${date}-${hour.length == 1 ? `0${hour}:00` : `${hour}:00`}`
+        const fullDate = `${date}T${hour.length == 1 ? `0${hour}` : `${hour}`}`
         fetch(`http://localhost:3000/location/${fullDate}`)
         .then(response => response.json())
         .then((json) => {

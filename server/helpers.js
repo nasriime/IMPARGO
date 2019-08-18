@@ -28,10 +28,10 @@ const splitDate = (fullDate)=> {
 
 // Get the hour only from date string 
 // example "2019-07-23T13:10:54.332Z"
-const splitHour = (FullDate)=>{
-    const colonIndex = getHour(FullDate);
-    const dashIndex = getDate(FullDate);
-    const hour = fullDate.substring(dashIndex, colonIndex);
+const splitHour = (fullDate)=>{
+    const colonIndex = getHour(fullDate);
+    const dashIndex = getDate(fullDate);
+    const hour = fullDate.substring(dashIndex+1, colonIndex);
     return hour;
 }
 
@@ -59,32 +59,34 @@ const segemntsArray = (locations)=>{
 }
 
 
-const searchByDate = (locations, searchDate, searchHour)=>{
-    const dates = locations.map(element => {
-        return splitDate(element.time);
-    });
+const searchByDate = (locations, when)=>{
+    // Get the index of "T" 
+    // example "2019-07-23T13"
+    const dashIndex = getDate(when);
+    // substring year, month and day only 
+    const searchDate = when.substring(0, dashIndex);
+    // substring hour only 
+    const searchHour = when.substring(dashIndex+1, when.length);
 
-    const matchedDates = dates.filter(date=> {
+    const matchedDates = locations.filter(element=> {
+        const date = splitDate(element.time);
         return date == searchDate
     });
 
     if(matchedDates.length >0){
-        const hours = locations.map(element => {
-            return splitHour(element.time);
-        });
-
-        const matchedHours = hours.filter(hour=> {
-            return (Number(hour) == searchHour) || (Number(hour)+1 == searchHour) || (Number(hour)-1 == searchHour) 
+        const matchedHours = matchedDates.filter(elem=> {
+            const hour = splitHour(elem.time);
+            return Number(hour) == searchHour 
         });
 
         if(matchedHours.length >0){
          return matchedHours;   
         }
 
-        return false;
+        return [];
     }
 
-    return false;
+    return [];
 }
 
 module.exports = {
