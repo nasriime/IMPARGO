@@ -5,7 +5,7 @@ import Slider from './Slider'
 import './styles.css'
 
 const Index = () => {
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState([]);
   const search = (searchResult)=>{
     setResult(searchResult);
   }

@@ -21,7 +21,7 @@ const getRandomColor = ()=> {
 const MapComponent = ({results}) => {
   const map = useRef()
   const [locations, setLocations] = useState()
-  const [error, setError] = useState()
+  // store markers to be able to remove the later
   const [markers, setMarkers] = useState([])
   // Request location data.
   useEffect(() => {
@@ -66,11 +66,10 @@ const MapComponent = ({results}) => {
 
   }, [locations, map.current])
   // TODO(Task 2): Display location that the back-end returned on the map as a marker.
+  // watch prop results
   useEffect(() => {
-    setError('')
     if(results.length == 0){
-      console.log(results.length == 0)
-      setError('error happened')
+      // remove markers
       if(markers.length>0){
         markers.forEach(mark=>{
           mark.remove();
@@ -78,12 +77,15 @@ const MapComponent = ({results}) => {
       }
       return;
     }
+    // store markers to be able to remove the later
     const markersArr = [];
+    // Add markers
     results.forEach(result=>{
       const resultDate =  Moment(result.time).format('hh:mm DD.MM')
       const marker = L.marker([result.lat, result.lon]).bindPopup(resultDate).openPopup().addTo(map.current);
       markersArr.push(marker)
     })
+    // change markers state
     setMarkers(markersArr)
   },[results])
 

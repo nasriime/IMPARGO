@@ -1,3 +1,67 @@
 #mapid {
   height: 560px;
 }
+
+form{
+  margin-bottom: 30px;
+}
+
+form div{
+  margin-bottom: 15px
+}
+
+label{
+  display: inline-block;
+  margin-right: 20px;
+  width: 170px;
+}
+
+#range {
+  vertical-align: top;
+  -webkit-appearance: none;
+  height: 10px;
+  background: #d3d3d3;
+  outline: none;
+}
+
+#range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #1e0e48;
+  cursor: pointer;
+}
+
+#range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #1e0e48;
+  cursor: pointer;
+}
+select{
+  width: 130px;
+}
+
+button {
+  cursor: pointer;
+  background: #1e0e48;
+  color: #fff;
+  padding: 7px 19px;
+  border-radius: 5px;
+  border-color: transparent;
+}
+
+button:hover{
+  background: #fff;
+  border-color: #1e0e48;
+  color: #1e0e48;
+}
+
+button + button{
+  margin-left: 10px;
+}
+
+.error{
+  color:red
+}

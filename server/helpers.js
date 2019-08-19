@@ -61,19 +61,20 @@ const segemntsArray = (locations)=>{
 
 const searchByDate = (locations, when)=>{
     // Get the index of "T" 
-    // example "2019-07-23T13"
+    // Example "2019-07-23T13"
     const dashIndex = getDate(when);
-    // substring year, month and day only 
+    // Substring year, month and day only 
     const searchDate = when.substring(0, dashIndex);
-    // substring hour only 
+    // Substring hour only 
     const searchHour = when.substring(dashIndex+1, when.length);
-
+    //Get matched days with the searched day
     const matchedDates = locations.filter(element=> {
         const date = splitDate(element.time);
         return date == searchDate
     });
 
     if(matchedDates.length >0){
+        // Get matched hours with the searched hour within the matched days
         const matchedHours = matchedDates.filter(elem=> {
             const hour = splitHour(elem.time);
             return Number(hour) == searchHour 
