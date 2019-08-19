@@ -2,7 +2,7 @@ import React , {useState} from 'react'
 
 const Slider = ({search}) => {
     const [ date, setDate ] = useState('');
-    const [ hour, setHour ] = useState('00');
+    const [ hour, setHour ] = useState(18);
 
     const formatDate = (date)=>{
         var dd = date.getDate();
