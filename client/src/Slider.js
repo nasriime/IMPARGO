@@ -49,6 +49,7 @@ const Slider = ({search}) => {
                 <input type="range" min="0" max="23" required step="1" value={hour} onChange={(e) => setHour(e.target.value)} />
                 <br/>
                 <button type="submit">Search</button>
+                <button type="button" onClick={(e)=> search([])}>Reset</button>
             </form>
         </div>
     )
