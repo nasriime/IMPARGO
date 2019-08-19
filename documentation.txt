@@ -1,0 +1,15 @@
+Task1:(commit task1)
+      - Segements splitted by days cy locations which have the same day.
+      -	I had a better solution for this if we add from the backend ID to the trip,
+	we could make segemnts of locations share the same trip ID.
+
+Task2:(commit task2)
+      - Send day and hour to search for matching with that day and hour 
+        and bind markers to map.
+      - Search is restricted to the past 30 days but of course this can be changed 
+        or even add calender to make it nice.
+      - Reset button added to wipe markers from the map and search again.
+      - If you want to see results, please match days and hours from the file 
+        tracking.json, for example ( day 2019-07-23 / hour 18:00)
+
+	 	
