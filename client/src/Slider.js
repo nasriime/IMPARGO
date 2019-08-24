@@ -70,7 +70,7 @@ const Slider = ({search}) => {
                     <button type="button" onClick={resetMarkers}>Reset</button>
                 </div>
             </form>
-            { error && <div className="error">No results found!</div>}
+            <div className="error-wrapper">{ error && <div className="error">No results found!</div>}</div>
 
         </div>
     )

@@ -65,3 +65,7 @@ button + button{
 .error{
   color:red
 }
+
+.error-wrapper{
+  height: 30px;
+}
